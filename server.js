@@ -1,6 +1,8 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
+app.use(cors()); // Ruhusu requests zote
+
 const { Pool } = require('pg');
 
 const app = express();
