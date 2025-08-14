@@ -1,16 +1,21 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-app.use(cors()); // Ruhusu requests zote
+
+const app = express();
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'https://votingresult.netlify.app'
+}));
+
+app.use(express.json());
 
 const { Pool } = require('pg');
 
-const app = express();
+
 const port = process.env.PORT || 3001;
 
-// Enable CORS for all routes
-app.use(cors());
-app.use(express.json());
+
 
 // PostgreSQL connection pool - using your exact connection string
 const pool = new Pool({
